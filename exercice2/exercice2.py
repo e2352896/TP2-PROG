@@ -1,13 +1,13 @@
-def charger_pokemons_csv(unfichiercsv):
-    les_pokemons = {}
-    with open(unfichiercsv,'r') as fichier:
-        lecture = fichier.readlines()
-        for l in lecture:
-            leselements=l.strip().split(',')
-            nomdupokemon=leselements[0]
-            lesstatistiques=[int(el) for el in leselements[1:]]
-            les_pokemons[nomdupokemon] = lesstatistiques
-    return les_pokemons
+def charger_pokemons_csv(fichier_csv):
+     dict_pokemon = {}
+     with open(fichier_csv,'r') as fichier:
+         lecture = fichier.readlines()
+         for ligne in lecture:
+             el = ligne.strip().split(',')
+             nom_pokemon = el[0]
+             stat_pokemon = [int(el) for el in el[1:]]
+             dict_pokemon[nom_pokemon] = stat_pokemon
+     return dict_pokemon
 
 
 pkmn = charger_pokemons_csv("pokemon.csv")
